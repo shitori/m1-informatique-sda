@@ -1,5 +1,3 @@
-package structures;
-
 import java.util.ArrayList;
 
 /**
@@ -25,7 +23,7 @@ public class ArrayListProxy<T> {
      @param x est la valeur que l'on souhaite ajouter.
      @returns true si le tableau a été agrandit, false sinon
      */
-    public boolean append(T x){
+    boolean append(T x){
         boolean memory_allocation = false;
         if( do_we_need_to_enlarge_capacity() ){
             memory_allocation = true;
@@ -42,7 +40,7 @@ public class ArrayListProxy<T> {
      Complexité amortie : O(1)
      @returns true si le tableau a été réduit, false sinon
      */
-    public boolean pop_back(){
+    boolean pop_back(){
         boolean memory_reduction = false;
         if(!data.isEmpty()){
             if( do_we_need_to_reduce_capacity() ){
@@ -69,7 +67,7 @@ public class ArrayListProxy<T> {
      Complexité en temps/espace, pire cas : O(1)
      @returns le nombre d'éléments stockés dans le tableau.
      */
-    public int size(){
+    int size(){
         return data.size();
     }
 
@@ -78,7 +76,7 @@ public class ArrayListProxy<T> {
      Complexité en temps/espace, pire cas : O(1)
      @returns le nombre d'éléments stockés dans le tableau.
     */
-    public int capacity(){
+    int capacity(){
         return capacity;
     }
     
@@ -87,18 +85,19 @@ public class ArrayListProxy<T> {
      @returns true si le tableau doit être agrandi, false sinon.
      */
     private boolean do_we_need_to_enlarge_capacity() {
-        // return data.size() >= (capacity * 3) / 4;
-        return data.size() >= capacity ;
+        return data.size() >= (capacity * 3)/4;
+        //return data.size() >= capacity;
     }
 
     /**
        Cette fonction augmente la capacité du tableau.
     */
     private void enlarge_capacity(){
-        //capacity *= 2; // puis 4, puis 8
-        //data.ensureCapacity(capacity);
-	    capacity += Math.sqrt(capacity);
-	    data.ensureCapacity( capacity );
+    //capacity *= 2;
+    //capacity *= 4;
+    //capacity *= 8;
+	capacity += (int)Math.sqrt(capacity);
+	data.ensureCapacity( capacity );
     }
 
     /**

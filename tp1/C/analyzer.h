@@ -12,9 +12,9 @@ typedef struct analyzer_s{
   double * cost;
   // Coût cumulatif. La case i contient la somme des coûts des i premières opérations.
   // Permet de calculer le coût amorti d'une opération.
-  long double * cumulative_cost;
+  double * cumulative_cost;
   // Carré du coût cumulatif. Sert à calculer la variance. On ne garde que la dernière valeur.
-  long double cumulative_square;
+  double cumulative_square;
   // Capacité de stockage des tableaux
   size_t capacity;
   // Nombre d'éléments dans chaque tableaux.
@@ -51,7 +51,7 @@ void analyzer_append(analyzer_t * a, double cost);
    @param a est une analyse.
    @returns la somme des coûts enregistrés dans cette analyse.
 */
-long double get_total_cost(analyzer_t * a);
+double get_total_cost(analyzer_t * a);
 
 /**
    Renvoie le coût amorti d'une opération.
@@ -60,7 +60,7 @@ long double get_total_cost(analyzer_t * a);
    @param pos est l'indice de l'opération pour laquelle on veut connaître le coût amorti.
    @returns le coût amorti d'une opération.
 */
-long double get_amortized_cost(analyzer_t * a, size_t pos);
+double get_amortized_cost(analyzer_t * a, size_t pos);
 
 /**
    Renvoie la moyenne des coûts de toutes les opérations enregistrées dans l'analyse.
@@ -68,7 +68,7 @@ long double get_amortized_cost(analyzer_t * a, size_t pos);
    @param a est une analyse.
    @returns la moyenne des coûts de toutes les opérations enregistrées dans l'analyse.
 */
-long double get_average_cost(analyzer_t * a);
+double get_average_cost(analyzer_t * a);
 
 /**
    Renvoie la variance des coûts de toutes les opérations enregistrées dans l'analyse.
@@ -76,7 +76,7 @@ long double get_average_cost(analyzer_t * a);
    @param a est une analyse.
    @returns la variance des coûts de toutes les opérations enregistrées dans l'analyse.
 */
-long double get_variance(analyzer_t * a);
+double get_variance(analyzer_t * a);
 
 /**
    Renvoie l'écart-type des coûts de toutes les opérations enregistrées dans l'analyse.
@@ -84,7 +84,7 @@ long double get_variance(analyzer_t * a);
    @param a est une analyse.
    @returns l'écart-type des coûts de toutes les opérations enregistrées dans l'analyse.
 */
-long double get_standard_deviation(analyzer_t * a);
+double get_standard_deviation(analyzer_t * a);
 
 /**
    Sauvegarde la liste des coûts et des coûts amortis dans un fichier.

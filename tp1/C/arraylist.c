@@ -1,7 +1,6 @@
-#include "structures/arraylist.h"
+#include "arraylist.h"
 #include<stdio.h>
 #include<stdlib.h>
-#include<math.h>
 
 arraylist_t * arraylist_create(){
   arraylist_t * res = (arraylist_t *) malloc( sizeof(arraylist_t) );
@@ -45,7 +44,7 @@ char arraylist_pop_back(arraylist_t * a){
 
 
 int arraylist_get(arraylist_t * a, int pos){
-  if( a != NULL && pos >=0 && pos < a->size ){
+  if( a != NULL && pos >0 && pos < a->size ){
     return a->data[pos];
   }
   printf("Wrong parameter pos=%d or NULL list", pos);
@@ -61,11 +60,11 @@ size_t arraylist_capacity(arraylist_t * a){
 }
 
 char arraylist_do_we_need_to_enlarge_capacity(arraylist_t * a){
-  return ( a->size == a->capacity )? TRUE: FALSE;
+  return ( a->size >= (a->capacity * 3)/4 )? TRUE: FALSE;
 }
 
 void arraylist_enlarge_capacity(arraylist_t * a){
-  a->capacity += sqrt( a->capacity );
+  a->capacity *= 2;
   a->data = (int *) realloc(a->data, sizeof(int) * a->capacity);
 }
 

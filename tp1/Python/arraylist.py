@@ -25,3 +25,4 @@ class ArrayListProxy:
     def get_size(self):
         return len(data)
 
+        
