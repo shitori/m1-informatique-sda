@@ -1,0 +1,31 @@
+plot 'dynamic_array_memory_binary_decrease.plot' using 1:2 w lines title "Espace memoire inutilise"
+
+plot 'dynamic_array_memory_binary_full.plot' using 1:2 w lines title "Espace memoire inutilise"
+
+plot 'dynamic_array_memory_binary_increase.plot' using 1:2 w lines title "Espace memoire inutilise"
+
+plot 'dynamic_array_memory_binary_random.plot' using 1:2 w lines title "Espace memoire inutilise"
+
+plot 'dynamic_array_copy_binary_decrease.plot' using 1:2 w boxes title "Nombre de copies de valeurs effectuees"
+
+plot 'dynamic_array_copy_binary_full.plot' using 1:2 w boxes title "Nombre de copies de valeurs effectuees"
+
+plot 'dynamic_array_copy_binary_increase.plot' using 1:2 w boxes title "Nombre de copies de valeurs effectuees"
+
+plot 'dynamic_array_copy_binary_random.plot' using 1:2 w boxes title "Nombre de copies de valeurs effectuees"
+
+plot [0:1000]'dynamic_array_value_binary_random.plot' using 1:2 w lines title "Valeur insérer ou extraite"
+
+plot [0:1000]'dynamic_array_value_binary_full.plot' using 1:2 w lines title "Valeur insérer ou extraite"
+
+plot [0:1000][0:1]'dynamic_array_choice_binary_full.plot' using 1:2 w lines title "Choix de l'operation"
+
+plot [0:20][0:10000]'dynamic_array_time_binary_decrease.plot' using 1:3 w lines title "Decrease", 'dynamic_array_time_binary_increase.plot' using 1:3 w lines title "Increase", 'dynamic_array_time_binary_random.plot' using 1:3 w lines title "Random", 'dynamic_array_time_binary_full.plot' using 1:3 w lines title "Full"
+
+plot [0:1000000][0:10000]'dynamic_array_time_binary_decrease.plot' using 1:3 w lines title "Decrease", 'dynamic_array_time_binary_increase.plot' using 1:3 w lines title "Increase", 'dynamic_array_time_binary_random.plot' using 1:3 w lines title "Random", 'dynamic_array_time_binary_full.plot' using 1:3 w lines title "Full"
+
+plot [0:1000000][0:2000]'binomial_decrease.plot' using 1:3 w lines title "Decrease", 'binomial_increase.plot' using 1:3 w lines title "Increase", 'binomial_random.plot' using 1:3 w lines title "Random", 'binomial_full.plot' using 1:3 w lines title "Full"
+
+plot [0:1000000][0:2000]'binaryL_decrease.plot' using 1:3 w lines title "DecreaseLock", 'binaryL_increase.plot' using 1:3 w lines title "IncreaseLock", 'binaryL_random.plot' using 1:3 w lines title "RandomLock", 'binaryL_full.plot' using 1:3 w lines title "FullLock"
+
+plot [0:1000000][0:2000]'binary_decrease.plot' using 1:3 w lines title "Decrease", 'binary_increase.plot' using 1:3 w lines title "Increase", 'binary_random.plot' using 1:3 w lines title "Random", 'binary_full.plot' using 1:3 w lines title "Full"
